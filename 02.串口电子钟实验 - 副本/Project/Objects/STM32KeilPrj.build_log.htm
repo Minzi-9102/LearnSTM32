@@ -1,0 +1,78 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.20.0.0
+Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Min zi, SYSU, LIC=BUURY-IB9BZ-8TH3P-M0NAD-C9LMN-H9GAI
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.20
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 2 (build 183)
+Assembler:       Armasm.exe V5.06 update 2 (build 183)
+Linker/Locator:  ArmLink.exe V5.06 update 2 (build 183)
+Library Manager: ArmAr.exe V5.06 update 2 (build 183)
+Hex Converter:   FromElf.exe V5.06 update 2 (build 183)
+CPU DLL:         SARMCM3.DLL V5.20
+Dialog DLL:      DCM.DLL V1.13.7.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.18.0
+Dialog DLL:      TCM.DLL V1.14.9.0
+ 
+<h2>Project:</h2>
+D:\2025BME\LearnSTM32\STM32KeilTest\Product\02.串口电子钟实验 - 副本\Project\STM32KeilPrj.uvprojx
+Project File Date:  07/19/2025
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 2 (build 183)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Rebuild target 'Target 1'
+compiling RunClock.c...
+..\App\RunClock\RunClock.c(30): warning:  #550-D: variable "s_iHour" was set but never used
+  static  i16 s_iHour;
+..\App\RunClock\RunClock.c(31): warning:  #550-D: variable "s_iMin" was set but never used
+  static  i16 s_iMin ;
+..\App\RunClock\RunClock.c(32): warning:  #550-D: variable "s_iSec" was set but never used
+  static  i16 s_iSec ;
+..\App\RunClock\RunClock.c: 3 warnings, 0 errors
+compiling RCC.c...
+compiling stm32f10x_gpio.c...
+assembling startup_stm32f10x_hd.s...
+compiling stm32f10x_it.c...
+compiling misc.c...
+compiling SysTick.c...
+compiling UART1.c...
+compiling Queue.c...
+compiling stm32f10x_flash.c...
+compiling system_stm32f10x.c...
+compiling LED.c...
+compiling stm32f10x_usart.c...
+compiling NVIC.c...
+compiling core_cm3.c...
+compiling Timer.c...
+compiling stm32f10x_rcc.c...
+compiling Main.c...
+..\App\Main\Main.c(219): warning:  #177-D: variable "hour" was declared but never referenced
+  	i16 hour;
+..\App\Main\Main.c(220): warning:  #177-D: variable "min" was declared but never referenced
+  	i16 min;
+..\App\Main\Main.c(221): warning:  #177-D: variable "sec" was declared but never referenced
+  	i16 sec;
+..\App\Main\Main.c(70): warning:  #177-D: function "find_digit" was declared but never referenced
+  static const char *find_digit(const char *s)
+..\App\Main\Main.c: 4 warnings, 0 errors
+compiling stm32f10x_tim.c...
+linking...
+Program Size: Code=5640 RO-data=656 RW-data=68 ZI-data=1252  
+FromELF: creating hex file...
+".\Objects\STM32KeilPrj.axf" - 0 Error(s), 7 Warning(s).
+
+<h2>Collection of Component include folders:</h2>
+  D:\2025BME\LearnSTM32\STM32KeilTest\Product\02.串口电子钟实验 - 副本\Project\RTE
+  C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>
