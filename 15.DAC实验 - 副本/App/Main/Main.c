@@ -32,6 +32,9 @@
 #include "DAC.h"
 #include "Wave.h"
 #include "ProcHostCmd.h"
+#include "KeyOne.h"
+#include "ProcKeyOne.h"
+#include "OLED.h"
 
 /*********************************************************************************************************
 *                                              宏定义
@@ -89,10 +92,14 @@ static  void  InitHardware(void)
   InitNVIC();         //初始化NVIC模块
   InitUART1(115200);  //初始化UART模块
   InitTimer();        //初始化Timer模块
-  InitLED();          //初始化LED模块
+  //InitLED();          //初始化LED模块
   InitSysTick();      //初始化SysTick模块
   InitADC();          //初始化ADC模块
 	InitDAC();
+	InitKeyOne();
+	
+	InitOLED();
+	InitProcKeyOne();
 }
 
 /*********************************************************************************************************
@@ -124,6 +131,11 @@ static  void  Proc2msTask(void)
 
     if(s_iCnt4 >= 4)  //达到8ms
     {
+			ScanKeyOne(KEY_NAME_KEY1,ProcKeyUpKey1,ProcKeyDownKey1);
+			ScanKeyOne(KEY_NAME_KEY2,ProcKeyUpKey2,ProcKeyDownKey2);
+			ScanKeyOne(KEY_NAME_KEY3,ProcKeyUpKey3,ProcKeyDownKey3);
+			
+			
       if(ReadADCBuf(&adcData))  //从缓存队列中取出1个数据
       {
         waveData = (adcData * 127) / 4095;  //计算获取点的位置
@@ -139,7 +151,7 @@ static  void  Proc2msTask(void)
       s_iCnt4 = 0;  //准备下次的循环
     }
        
-    LEDFlicker(250);//调用闪烁函数     
+    //LEDFlicker(250);//调用闪烁函数     
     Clr2msFlag();   //清除2ms标志
   }
 }
@@ -158,7 +170,7 @@ static  void  Proc1SecTask(void)
   if(Get1SecFlag()) //判断1s标志状态
   {
     //printf("This is the first STM32F103 Project, by Zhangsan\r\n");
-    
+    OLEDRefreshGRAM();
     Clr1SecFlag();  //清除1s标志
   }    
 }
@@ -178,7 +190,7 @@ int main(void)
   InitHardware();   //初始化硬件相关函数
   
   printf("Init System has been finished.\r\n" );  //打印系统状态
-
+	OLEDShowString(8,0,"DAC Test");
   while(1)
   {
     Proc2msTask();  //2ms处理任务

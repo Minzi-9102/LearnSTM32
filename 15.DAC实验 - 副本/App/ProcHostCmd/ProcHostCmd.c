@@ -67,7 +67,8 @@ static u8 OnGenWave(u8* pMsg)
 		wave.waveBufAddr = (u32)GetRectWave100PointAddr();
 	}
 	wave.waveBufSize = 100;
-	SetDACWave(wave);
+//	SetDAC1Wave(wave);
+//	SetDAC2Wave(wave);
 	return(CMD_ACK_OK);
 }
 /*********************************************************************************************************

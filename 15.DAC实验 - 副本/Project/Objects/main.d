@@ -32,3 +32,6 @@
 .\objects\main.o: ..\HW\DAC\DAC.h
 .\objects\main.o: ..\HW\DAC\Wave.h
 .\objects\main.o: ..\App\ProcHostCmd\ProcHostCmd.h
+.\objects\main.o: ..\App\KeyOne\KeyOne.h
+.\objects\main.o: ..\App\KeyOne\ProcKeyOne.h
+.\objects\main.o: ..\App\OLED\OLED.h
