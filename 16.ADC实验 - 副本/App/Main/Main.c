@@ -69,7 +69,7 @@ static  void  InitSoftware(void)
 {
   InitPackUnpack();       //初始化PackUnpack模块
   InitProcHostCmd();      //初始化ProcHostCmd模块
-	InitSendDataToHost();
+	InitSendDataToHost();   //初始化SendDataToHost模块
 }
 
 /*********************************************************************************************************
@@ -91,7 +91,7 @@ static  void  InitHardware(void)
   InitLED();          //初始化LED模块
   InitSysTick();      //初始化SysTick模块
   InitDAC();          //初始化DAC模块
-	InitADC();
+	InitADC();          //初始化ADC模块         
 }
 
 /*********************************************************************************************************
@@ -106,12 +106,12 @@ static  void  InitHardware(void)
 static  void  Proc2msTask(void)
 {
   u8  uart1RecData; //串口数据
-	u16 adcData;
-	u8 waveData;
+	u16 adcData;      //ADC数据
+	u8 waveData;      //波形数据
 	
-	static u8 s_iCnt4 = 0;
-	static u8 s_iPointCnt = 0;
-	static u8 s_arrWaveData[5] = {0};
+	static u8 s_iCnt4 = 0;//计数器，用于控制ADC采样频率
+	static u8 s_iPointCnt = 0;//波形数据点计数器
+	static u8 s_arrWaveData[5] = {0};//波形数据数组
 	
   if(Get2msFlag())  //判断2ms标志状态
   { 
@@ -123,11 +123,11 @@ static  void  Proc2msTask(void)
 		
 		if(s_iCnt4 >= 4)
 		{
-			if(ReadADCBuf(&adcData))
+			if(ReadADCBuf(&adcData))//从ADC缓冲区读取数据
 			{
-				waveData = (adcData * 127)/4095;
-				s_arrWaveData[s_iPointCnt] = waveData;
-				s_iPointCnt++;
+				waveData = (adcData * 127)/4095;//将ADC数据转换为波形数据
+				s_arrWaveData[s_iPointCnt] = waveData;//存储波形数据
+				s_iPointCnt++;//波形数据点计数器自增
 				
 				if(s_iPointCnt >= 5)
 				{
