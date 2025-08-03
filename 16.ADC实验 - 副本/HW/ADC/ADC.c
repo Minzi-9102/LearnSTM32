@@ -97,7 +97,7 @@ static void ConfigADC1(void)
 *********************************************************************************************************/
 static void ConfigDMA1Ch1(void)
 {
-	DMA_InitTypeDef DMA_InitStructure;//DMA初始化结构体
+	DMA_InitTypeDef DMA_InitStructure;//DMA初始化结构体?
 	
 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1,ENABLE);//使能DMA1时钟
 	
