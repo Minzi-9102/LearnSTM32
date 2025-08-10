@@ -1,0 +1,9 @@
+.\objects\calc.o: ..\App\Calc\Calc.c
+.\objects\calc.o: ..\App\Calc\Calc.h
+.\objects\calc.o: ..\App\DataType\DataType.h
+.\objects\calc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\calc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\calc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
+.\objects\calc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\calc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\calc.o: ..\HW\UART1\UART1.h

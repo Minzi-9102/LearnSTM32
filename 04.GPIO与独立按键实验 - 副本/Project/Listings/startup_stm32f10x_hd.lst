@@ -553,7 +553,7 @@ ARM Macro Assembler    Page 9
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=.\objects\startup_stm32f10x_hd.d -o.\objects\startup_stm32f10x_hd.
-o -I"D:\2025BME\LearnSTM32\STM32KeilTest\Product\04.GPIO与独立按键实验 - 副本\P
+o -I"D:\BME2025\LearnSTM32\STM32KeilTest\Product\04.GPIO与独立按键实验 - 副本\P
 roject\RTE" -IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include -IC:\
 Keil_v5\ARM\CMSIS\Include --predefine="__MICROLIB SETA 1" --predefine="__UVISIO
 N_VERSION SETA 520" --predefine="STM32F10X_HD SETA 1" --list=.\listings\startup
