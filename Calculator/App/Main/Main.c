@@ -174,23 +174,22 @@ static  void  Proc1SecTask(void)
 void CalcTask(void)
 {
   u8 i;
-  printf("%d\r\n", rxCnt);
+  printf("已接收%d个字符，接收到的所有字符如下\r\n", rxCnt);
   for ( i = 0; i < rxCnt; i++)
   {
     printf("%c", rxBuf[i]); // 打印接收到的字符
     /* code */
   }
-  printf("\r\n");
-  
-
-   // 计算结果变量
-  result = calc(rxBuf); // 调用计算函数
+  printf("\r\n按KEY2显示计算结果\r\n");
   // printf("计算结果: %f\r\n", result); // 打印计算结果
   // rxCnt = 0; // 重置计数器
 }
 void DisplayResult(void)
 {
+  // 计算结果变量
+  result = calc(rxBuf); // 调用计算函数
   printf("计算结果: %f\r\n", result); // 打印计算结果
+  printf("重新写入计算式前请先按KEY3清除接收缓冲区\r\n");
 }
 
 void ClearRxBuf(void)
@@ -207,6 +206,7 @@ void ClearRxBuf(void)
   rxCnt = 0; // 清除接收缓冲区
   result = calc(rxBuf); // 调用计算函数
   printf("清空缓冲区: %f\r\n", result); 
+  printf("现在可以重新输入计算式了\r\n"); 
 }
 /*********************************************************************************************************
 * 函数名称：main
@@ -219,7 +219,6 @@ void ClearRxBuf(void)
 *********************************************************************************************************/
 int main(void)
 { 
-  double result; // 计算结果变量
   InitSoftware();   //初始化软件相关函数
   InitHardware();   //初始化硬件相关函数
   
